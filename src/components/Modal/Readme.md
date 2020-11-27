@@ -15,7 +15,7 @@ let isOpen = false;
 The variables are reactive:
 
 ```jsx
-let count = 1;
+let count = 6;
 
 <button @click.prevent="count++">{{ count }}</button>
 ```
@@ -29,7 +29,7 @@ new Vue({
   data() {
     return {
       showModal: false,
-      countdown: timeCountdown
+      countdown: timeCountdown,
     };
   },
   watch: {
@@ -44,7 +44,7 @@ new Vue({
           }
         }, 1000);
       }
-    }
+    },
   },
   template: `
     <div>
@@ -56,6 +56,6 @@ new Vue({
         </div>
       </Modal>
     </div>
-  `
+  `,
 });
 ```
