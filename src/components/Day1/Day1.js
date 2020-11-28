@@ -1,3 +1,2 @@
 const abc = "abc";
-const abcd = "abc";
-const abcf = "abc";
+console.log(abc);

@@ -1,16 +1,30 @@
 <template>
   <transition name="Day1">
-    <p>Day1</p>
+    <Wrapper>
+      <StyledTitle>Day1</StyledTitle>
+    </Wrapper>
   </transition>
 </template>
 
 <script>
+import styled from 'vue-styled-components';
+const StyledTitle = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`;
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`;
+
 export default {
   name: "Day1",
-  props: {}
+  props: {},
+  components: {
+    StyledTitle,
+    Wrapper,
+  }
 };
 </script>
-
-<style scoped>
-
-</style>
