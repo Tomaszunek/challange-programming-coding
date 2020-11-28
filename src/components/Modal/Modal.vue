@@ -1,15 +1,18 @@
 <template>
-  <transition name="Modal" v-if="showModal">
+  <transition
+    v-if="showModal"
+    name="Modal"
+  >
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-head">
             <!-- @slot Header containing the title of the modal -->
-            <slot name="head"></slot>
+            <slot name="head" />
           </div>
           <div class="modal-body">
             <!-- @slot Boby with the actual content -->
-            <slot name="body"></slot>
+            <slot name="body" />
           </div>
         </div>
       </div>

@@ -22,16 +22,28 @@
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^0.19.0",
-    "vue-styleguidist": "^4.10.1",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
+    "vue-styleguidist": "^4.10.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.14.0",
+    "eslint-plugin-vue": "^7.1.0"
   },
   "scripts": {
     "start": "vue-styleguidist server",
     "styleguide": "vue-styleguidist server",
-    "styleguide:build": "vue-styleguidist build"
+    "styleguide:build": "vue-styleguidist build",
+    "lint": "eslint --ext .js --ext .vue src/",
+    "lint:fix": "eslint --ext .js --ext .vue src/ --fix"
   },
-  "keywords": ["vuejs", "documentation", "live", "design system"]
+  "keywords": [
+    "vuejs",
+    "documentation",
+    "live",
+    "design system"
+  ]
 }
