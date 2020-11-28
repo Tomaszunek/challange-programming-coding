@@ -1,4 +1,4 @@
-## Sum 2 elements exist in array
+## Two numbers add up to given number
 
 Given a list of numbers and a number k, return whether any two numbers from the list add up to k.
 
