@@ -67,7 +67,7 @@
   "lint-staged": {
     "./src/*.{js,jsx,ts,tsx}": [
       "npx prettier --write",
-      "npm run lint"
+      "eslint --ext .js --ext .vue src/"
     ]
   }
 }
