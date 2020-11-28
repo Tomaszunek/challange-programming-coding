@@ -66,8 +66,8 @@
   },
   "lint-staged": {
     "./src/**/*.{js,vue}": [
-      "npx prettier --write",
       "eslint --ext .js --ext .vue src/",
+      "npx prettier --write",
       "git add ."
     ]
   }
