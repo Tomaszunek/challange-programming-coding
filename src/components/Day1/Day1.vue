@@ -1,30 +1,65 @@
 <template>
   <transition name="Day1">
-    <Wrapper>
-      <StyledTitle>Day1</StyledTitle>
-    </Wrapper>
+    <div>
+      <InputWrapper>
+        <span>Input</span>
+        <input type="text" v-model="items"/>
+        <span>Number</span>
+        <input type="number" v-model="sumNumber"/>
+      </InputWrapper>
+      <OutputWrapper>
+        <span>Output: {{output}}</span>
+      </OutputWrapper>
+    </div>
   </transition>
 </template>
 
 <script>
 import styled from 'vue-styled-components';
-const StyledTitle = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+import { twoNumbersFromArrayAddUpToNumber } from './day1Calculation';
+
+const InputWrapper = styled.section`
+  padding: 4em;
+  display: flex;
+  justify-content: space-around;
 `;
 
-const Wrapper = styled.section`
+const OutputWrapper = styled.section`
   padding: 4em;
-  background: papayawhip;
+  display: flex;
+  justify-content: start;
 `;
+
+const parseStringToArray = (items, number) => {
+  return false || twoNumbersFromArrayAddUpToNumber(JSON.parse(items), Number(number))
+}
 
 export default {
   name: "Day1",
-  props: {},
+  props: {
+    arrayItems: {
+      type: String,
+      required: true,
+    },
+    sumInput: {
+      type: String,
+      required: true,
+    }
+  },
+  computed: {
+    output: function() {
+      return parseStringToArray(this.items, Number(this.sumNumber));
+    }    
+  },  
+  data() {
+    return {
+      items: this.arrayItems,
+      sumNumber: this.sumInput,
+    }
+  },
   components: {
-    StyledTitle,
-    Wrapper,
+    InputWrapper,
+    OutputWrapper,
   }
 };
 </script>
