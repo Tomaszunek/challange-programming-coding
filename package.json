@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "babel-core": "^7.0.0-bridge.0",
@@ -29,16 +30,23 @@
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "@testing-library/vue": "^5.6.1",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.14.0",
-    "eslint-plugin-vue": "^7.1.0"
+    "eslint-plugin-testing-library": "^3.10.1",
+    "eslint-plugin-vue": "^7.1.0",
+    "jest": "^26.6.3",
+    "vue-jest": "^3.0.7"
   },
   "scripts": {
     "start": "vue-styleguidist server",
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "lint": "eslint --ext .js --ext .vue src/",
-    "lint:fix": "eslint --ext .js --ext .vue src/ --fix"
+    "lint:fix": "eslint --ext .js --ext .vue src/ --fix",
+    "test": "jest"
   },
   "keywords": [
     "vuejs",

@@ -1,0 +1,10 @@
+{
+  "moduleFileExtensions": ["js", "json", "vue"],  
+  "transformIgnorePatterns": [
+    "<rootDir>/node_modules/(?!@agm)"
+  ],
+  "transform": {
+    "^.+\\.js": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.vue$": "vue-jest"
+  }
+}
