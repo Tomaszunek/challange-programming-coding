@@ -1,7 +1,7 @@
 const vueLoader = require("vue-loader");
 
 module.exports = {
-  title: "Vue Style Guide Example",
+  title: "Daily Programming Challange",
   components: "src/components/**/[A-Z]*.vue",
   require: ["./prism-vsc.css"],
   jssThemedEditor: false,
@@ -13,7 +13,7 @@ module.exports = {
         isolate: false,
       },
     },
-  },
+  },  
   webpackConfig: {
     module: {
       rules: [
