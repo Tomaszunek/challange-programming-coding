@@ -1,9 +1,9 @@
-const vueLoader = require("vue-loader");
+const vueLoader = require('vue-loader');
 
 module.exports = {
-  title: "Daily Programming Challange",
-  components: "src/components/**/[A-Z]*.vue",
-  require: ["./prism-vsc.css"],
+  title: 'Daily Programming Challange',
+  components: 'src/components/**/[A-Z]*.vue',
+  require: ['./prism-vsc.css'],
   jssThemedEditor: false,
   defaultExample: false,
   progressBar: true,
@@ -13,27 +13,27 @@ module.exports = {
         isolate: false,
       },
     },
-  },  
+  },
   webpackConfig: {
     module: {
       rules: [
         {
           test: /\.vue$/,
-          loader: "vue-loader",
+          loader: 'vue-loader',
         },
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"],
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },
     plugins: [new vueLoader.VueLoaderPlugin()],
   },
-  usageMode: "expand",
-  exampleMode: "expand",
+  usageMode: 'expand',
+  exampleMode: 'expand',
 };
