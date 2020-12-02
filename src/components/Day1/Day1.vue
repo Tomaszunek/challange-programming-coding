@@ -36,6 +36,10 @@ const parseStringToArray = (items, number) => {
 
 export default {
   name: "Day1",
+  components: {
+    InputWrapper,
+    OutputWrapper,
+  },
   props: {
     arrayItems: {
       type: String,
@@ -46,20 +50,16 @@ export default {
       required: true,
     }
   },
-  computed: {
-    output: function() {
-      return parseStringToArray(this.items, Number(this.sumNumber));
-    }    
-  },  
   data() {
     return {
       items: this.arrayItems,
       sumNumber: this.sumInput,
     }
   },
-  components: {
-    InputWrapper,
-    OutputWrapper,
-  }
+  computed: {
+    output: function() {
+      return parseStringToArray(this.items, Number(this.sumNumber));
+    }    
+  },  
 };
 </script>
