@@ -57,8 +57,7 @@ const reduceSteps = (
 
 const getStaircaseUniqueWays = (stairsCount, stepsCount) => {
   const treeRoot = reduceSteps(0, stairsCount, stepsCount);
-  const allPaths = [];
-  console.log(treeRoot, getPaths(treeRoot));
+  console.log(treeRoot, getPaths(treeRoot).map(Number));
 };
 
 export { getStaircaseUniqueWays };
