@@ -50,6 +50,10 @@ const reduceSteps = (
 const getStaircaseUniqueWays = (stairsCount, stepsCount) =>
   getPaths(reduceSteps(stairsCount, stepsCount))
     .map(Number)
+    .reduce(function (a, b) {
+      if (a.indexOf(b) < 0) a.push(b);
+      return a;
+    }, [])
     .sort((a, b) => a - b);
 
 export { getStaircaseUniqueWays };
