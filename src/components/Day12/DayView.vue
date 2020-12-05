@@ -2,19 +2,24 @@
   <transition name="Day12">
     <div>
       <InputWrapper>
-        <span>Words:</span>
+        <span>Number N steps:</span>
         <input
-          v-model="words"
-          type="text"
+          v-model="count"
+          type="number"
         >
-        <span>prefix:</span>
+        <span>Number stairs count:</span>
         <input
-          v-model="prefix"
-          type="text"
+          v-model="stairs1"
+          type="number"
+        >
+        <span>Number stairs count:</span>
+        <input
+          v-model="stairs2"
+          type="number"
         > 
       </InputWrapper>
       <OutputWrapper>
-        <span>Words with prefix: {{ output }}</span>
+        <span>Unique ways: {{ output }}</span>
       </OutputWrapper>
     </div>
   </transition>
@@ -22,7 +27,7 @@
 
 <script>
 import styled from 'vue-styled-components';
-import { getStringsWithPrefix } from './calc';
+import { getStaircaseUniqueWays } from './calc';
 
 const InputWrapper = styled.section`
   padding: 1em 4em;
@@ -44,26 +49,30 @@ export default {
     OutputWrapper,
   },
   props: {
-    wordsArray: {
-      type: String,
+    countN: {
+      type: Number,
       required: true,
     },
-    prefixString: {
-      type: String,
+    stairsCount1: {
+      type: Number,
+      required: true,
+    },
+    stairsCount2: {
+      type: Number,
       required: true,
     },
   },  
   data() {
     return {
-      words: this.wordsArray,
-      prefix: this.prefixString,
+      count: this.countN,
+      stairs1: this.stairsCount1,
+      stairs2: this.stairsCount2
     }
   },
   computed: {
     output: function() {
-      const { words, prefix } = this;
-      const arrayFromString = JSON.parse(words);
-      return getStringsWithPrefix(prefix, arrayFromString);
+      const { count, stairs1, stairs2 } = this;
+      return getStaircaseUniqueWays(count, [stairs1, stairs2]);
     },    
   }
 };

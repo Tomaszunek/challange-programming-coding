@@ -11,7 +11,6 @@ function dive(t, res, arr) {
     dive(t.right, res, arr);
   }
   if (!t.left && !t.right) {
-    console.log(res);
     arr.push(res);
     return;
   }
@@ -21,43 +20,36 @@ function getPaths(t) {
   let arr = [];
   if (!t.left && !t.right) {
     t.value != null && t.value != undefined && arr.push(`${t.value}`);
-    console.log(arr);
     return arr;
   }
   dive(t, null, arr);
-  console.log(arr);
   return arr;
 }
 
+const createSideCaller = (side, stepCount, restStairs, stepsCount, tree) => {
+  if (restStairs - stepCount >= 0) {
+    tree[side] = createTree(stepCount, null, null);
+    reduceSteps(restStairs - stepCount, stepsCount, tree[side]);
+  }
+};
+
 const reduceSteps = (
-  step,
   restStairs,
   stepsCount,
   tree = createTree(0, null, null),
 ) => {
   const [leftStep, rightStep] = stepsCount;
-  console.log({
-    step,
-    restStairs,
-    stepsCount,
-    tree,
-  });
-  if (restStairs - leftStep >= 0) {
-    tree.left = createTree(leftStep, null, null);
-    console.log(restStairs, leftStep);
-    reduceSteps(leftStep, restStairs - leftStep, stepsCount, tree.left);
-  }
-  if (restStairs - rightStep >= 0) {
-    tree.right = createTree(rightStep, null, null);
-    console.log(restStairs, rightStep);
-    reduceSteps(rightStep, restStairs - rightStep, stepsCount, tree.right);
+  createSideCaller('left', leftStep, restStairs, stepsCount, tree);
+  createSideCaller('right', rightStep, restStairs, stepsCount, tree);
+  if (restStairs < leftStep && restStairs < rightStep) {
+    createSideCaller('left', 1, restStairs, stepsCount, tree);
   }
   return tree;
 };
 
-const getStaircaseUniqueWays = (stairsCount, stepsCount) => {
-  const treeRoot = reduceSteps(0, stairsCount, stepsCount);
-  console.log(treeRoot, getPaths(treeRoot).map(Number));
-};
+const getStaircaseUniqueWays = (stairsCount, stepsCount) =>
+  getPaths(reduceSteps(stairsCount, stepsCount))
+    .map(Number)
+    .sort((a, b) => a - b);
 
 export { getStaircaseUniqueWays };

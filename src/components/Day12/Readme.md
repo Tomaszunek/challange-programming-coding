@@ -7,12 +7,9 @@ Implement an autocomplete system. That is, given a query string `s` and a set of
 For example, given the query string `de` and the set of strings [`dog`, `deer`, `deal`], return [`deer`, `deal`].
 
 ```jsx
-<Day11 wordsArray='["dog", "deer", "deal"]' prefixString="de" />
+<Day12 :countN="4" :stairsCount1="1" :stairsCount2="2" />
 ```
 
 ```jsx
-<Day11
-  wordsArray='["beer", "bear", "be", "bee", "banknote", "ballon"]'
-  prefixString="be"
-/>
+<Day12 :countN="15" :stairsCount1="6" :stairsCount2="3" />
 ```
