@@ -1,10 +1,10 @@
-## Strings with prefixes
+## Longest unique substring
 
-This problem was asked by Twitter.
+This problem was asked by Amazon.
 
-Implement an autocomplete system. That is, given a query string `s` and a set of all possible query strings, return all strings in the set that have s as a prefix.
+Given an integer `k` and a string `s`, find the length of the longest substring that contains at most `k` distinct characters.
 
-For example, given the query string `de` and the set of strings [`dog`, `deer`, `deal`], return [`deer`, `deal`].
+For example, given `s = "abcba"` and `k = 2`, the longest substring with `k` distinct characters is `"bcb"`.
 
 ```jsx
 <Day13 stringProp="abcbd" :uniqueLettersCount="2" />
