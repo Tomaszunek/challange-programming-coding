@@ -1,12 +1,16 @@
 <template>
-  <transition name="Day20">
+  <transition name="Day21">
     <div>
       <InputWrapper>
-        <span>Node(3, Node(7, Node(8, Node(10)))):</span>
-        <span>Node(99, Node(1, Node(8, Node(10)))):</span>            
+        <span>Array intervals:</span>
+        <input
+          v-model="array"
+          type="text"
+          style="width: 500px;"
+        >       
       </InputWrapper>
       <OutputWrapper>
-        <span> Output: {{ output }}
+        <span> Minimal room count: {{ output }}
         </span>
       </OutputWrapper>
     </div>
@@ -15,7 +19,7 @@
 
 <script>
 import styled from 'vue-styled-components';
-import { Node, findIntersection } from './calc';
+import { getMinimumNumberRooms} from './calc';
 
 const InputWrapper = styled.section`
   padding: 1em 4em;
@@ -30,18 +34,28 @@ const OutputWrapper = styled.section`
   justify-content: start;
 `;
 
-const ll1 = Node(3, Node(7, Node(8, Node(10))));
-const ll2 = Node(99, Node(1, Node(8, Node(10))));
-
 export default {
-  name: "Day20",
+  name: "Day21",
   components: {
     InputWrapper,
     OutputWrapper,
+  },
+  props: {
+    arrayProps: {
+      type: String,
+      required: true,
+    },
+  },  
+  data() {
+    return {
+      array: this.arrayProps,
+    }
   }, 
   computed: {
     output: function() {
-      return findIntersection(ll1, ll2);
+      const { array } = this;
+      const parseArray = JSON.parse(array);
+      return getMinimumNumberRooms(parseArray);
     }    
   }
 };
