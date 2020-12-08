@@ -1,12 +1,10 @@
 ## Linked link intersecting node
 
-This problem was asked by Google.
+This problem was asked by Snapchat.
 
-Given two singly linked lists that intersect at some point, find the intersecting node. The lists are non-cyclical.
+Given an array of time intervals (`start`, `end`) for classroom lectures (possibly overlapping), find the minimum number of rooms required.
 
-For example, given `A = 3 -> 7 -> 8 -> 10` and `B = 99 -> 1 -> 8 -> 10`, return the node with value `8`.
-
-In this example, assume nodes with the same value are the exact same node objects.
+For example, given `[(30, 75), (0, 50), (60, 150)]`, you should return `2`.
 
 ```jsx
 <Day21 arrayProps="[[30, 75],[0, 50],[60, 150],[60, 150], [50, 160]]" />
