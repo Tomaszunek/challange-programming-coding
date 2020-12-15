@@ -2,7 +2,7 @@ const vueLoader = require('vue-loader');
 
 module.exports = {
   title: 'Daily Programming Challange',
-  components: 'src/components/**/[A-Z]*.vue',
+  components: 'src/components/**/Day*.vue',
   require: ['./prism-vsc.css'],
   jssThemedEditor: false,
   defaultExample: false,
