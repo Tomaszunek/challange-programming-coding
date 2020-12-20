@@ -1,12 +1,14 @@
-## Remove by index from Linked list
+## Justify text
 
-This problem was asked by `Facebook`.
+This problem was asked by `Palantir`.
 
-Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed).
+Write an algorithm to justify text. Given a sequence of words and an integer line length `k`, return a list of strings which represents each line, fully justified.
 
-For example, given the string `"([])[]({})"`, you should return `true`.
+More specifically, you should have as many words as possible in each line. There should be at least one space between each word. Pad extra spaces when necessary so that each line has exactly length `k`. Spaces should be distributed as equally as possible, with the extra spaces, if any, distributed starting from the left.
 
-Given the string `"([)]"` or `"((()"`, you should return `false`.
+If you can only fit one word on a line, then you should pad the right-hand side with spaces.
+
+Each word is guaranteed not to be longer than `k`.
 
 ```jsx
 <Day28 wordsProp="mall,extent,mode,math,truth,method,situation,appointment,uncle,buyer,intention,session,week,surgery,painting,responsibility,organization,map,patience,negotiation" :lineLengthProp="20" />
