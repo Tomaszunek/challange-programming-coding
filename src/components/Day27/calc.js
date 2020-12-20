@@ -17,13 +17,11 @@ const balancedBrackets = (string) => {
       openingCount++;
     } else if (brackets[element] === tempBrackets[tempBrackets.length - 1]) {
       tempBrackets.pop();
-      console.log(openingCount, closingCount);
       closingCount++;
     } else {
       return false;
     }
   });
-  console.log(openingCount, closingCount);
   return tempBrackets.length === 0 && openingCount === closingCount;
 };
 export { balancedBrackets };
