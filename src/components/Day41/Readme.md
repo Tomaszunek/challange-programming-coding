@@ -1,4 +1,4 @@
-## Unique items in array
+## Path of between all dest
 
 This problem was asked by `Facebook`.
 
