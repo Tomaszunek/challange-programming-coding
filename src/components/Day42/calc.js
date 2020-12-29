@@ -1,25 +1,23 @@
 const nextSumElement = (
   sumArrays,
   numbers,
-  number,
   sum,
+  number,
   currentElements = [],
 ) => {
-  if (number !== 0) {
-    currentElements.push(number);
-  }
-  numbers = numbers.filter((number) => number <= sum);
+  if (number) currentElements.push(number);
+  numbers = numbers.filter((item) => item <= sum);
   if (sum === 0) {
     sumArrays.push(currentElements);
   } else if (numbers.length === 0) {
     return;
   } else {
-    numbers.forEach((number, numIndex) => {
+    numbers.forEach((item, numIndex) => {
       nextSumElement(
         sumArrays,
         numbers.filter((i, index) => index > numIndex),
-        number,
-        sum - number,
+        sum - item,
+        item,
         [...currentElements],
       );
     });
@@ -27,7 +25,8 @@ const nextSumElement = (
 };
 const findSum = (numbers, sum) => {
   const sumArrays = [];
-  nextSumElement(sumArrays, numbers, 0, sum);
+  nextSumElement(sumArrays, numbers, sum);
+  if (sumArrays.length === 0) return null;
   return sumArrays;
 };
 

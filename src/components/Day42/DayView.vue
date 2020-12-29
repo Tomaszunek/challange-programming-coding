@@ -1,22 +1,22 @@
 <template>
-  <transition name="Day41">
+  <transition name="Day42">
     <div>
       <InputWrapper>
-        <span>Origins/Dest:</span>
+        <span>Numbers:</span>
         <input
-          v-model="origins"
+          v-model="numbersArray"
           type="text"
           style="width: 500px;"
         >
-        <span>Start</span>
+        <span>Sum:</span>
         <input
-          v-model="startPlace"
-          type="text"
+          v-model="sumNumber"
+          type="number"
           style="width: 100px;"
         >      
       </InputWrapper>
       <OutputWrapper>
-        <code> Path: {{ output }}
+        <code> Possible sums: {{ output }}
         </code>
       </OutputWrapper>
     </div>
@@ -25,7 +25,7 @@
 
 <script>
 import styled from 'vue-styled-components';
-import { findPath } from './calc';
+import { findSum } from './calc';
 
 const InputWrapper = styled.section`
   padding: 1em 4em;
@@ -41,34 +41,32 @@ const OutputWrapper = styled.section`
 `;
 
 export default {
-  name: "Day41",
+  name: "Day42",
   components: {
     InputWrapper,
     OutputWrapper,
   },
   props: {
-    orginsDest: {
+    numbers: {
       type: String,
       required: true,
     },
-    start: {
-      type: String,
+    sum: {
+      type: Number,
       required: true,
     },
   },  
   data() {
     return {
-      origins: this.orginsDest,
-      startPlace: this.start,
+      numbersArray: this.numbers,
+      sumNumber: this.sum,
     }
   }, 
   computed: {
     output: function() {
-      const { origins, startPlace } = this;
-      const cuttedString = origins.substring(1, origins.length-1);
-      const orig = cuttedString.split('],[');
-      const pairs = orig.map(pair => pair.split(','))
-      return JSON.stringify(findPath(pairs, startPlace));
+      const { numbersArray, sumNumber } = this;
+      const parseArray = JSON.parse(numbersArray);
+      return JSON.stringify(findSum(parseArray, sumNumber));
     }    
   }
 };
